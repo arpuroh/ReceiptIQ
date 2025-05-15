@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReceiptIQ - Know Every Line, Every Dime.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F0E3; /* Soft Ivory */
+            color: #1A472A; /* Dark Green */
+        }
+        .dark-green-bg {
+            background-color: #1A472A; /* Dark Green */
+        }
+        .soft-ivory-text {
+            color: #F8F0E3; /* Soft Ivory */
+        }
+        .dark-green-text {
+            color: #1A472A; /* Dark Green */
+        }
+        .soft-ivory-bg {
+            background-color: #F8F0E3; /* Soft Ivory */
+        }
+        .accent-green-bg {
+            background-color: #2F6C46; /* Accent Green */
+        }
+        .accent-green-text {
+            color: #2F6C46; /* Accent Green */
+        }
+        nav a {
+            transition: color 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            color: #5cb85c; /* A lighter, more vibrant green for hover/active */
+        }
+        .content-section {
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.5s ease-out;
+        }
+        .content-section.active {
+            display: block; /* Shown when active */
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .card {
+            background-color: white;
+            border-radius: 0.75rem; /* 12px */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem; /* 24px */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem; /* 8px */
+            font-weight: 600;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block;
+            text-align: center;
+        }
+        .btn-primary {
+            background-color: #2F6C46; /* Accent Green */
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #1A472A; /* Dark Green */
+            transform: scale(1.05);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #2F6C46; /* Accent Green */
+            border: 2px solid #2F6C46;
+        }
+        .btn-secondary:hover {
+            background-color: #2F6C46; /* Accent Green */
+            color: white;
+            transform: scale(1.05);
+        }
+        /* Responsive iframe for mockups */
+        .responsive-iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+        }
+        .responsive-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        /* Custom list styles */
+        .custom-list li {
+            position: relative;
+            padding-left: 1.5em; /* space for the icon */
+            margin-bottom: 0.5em;
+        }
+        .custom-list li::before {
+            content: '✓'; /* Checkmark icon */
+            position: absolute;
+            left: 0;
+            color: #2F6C46; /* Accent Green */
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header class="dark-green-bg soft-ivory-text sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-3xl font-bold nav-link" data-section="home">ReceiptIQ</a>
+            <nav class="space-x-6">
+                <a href="#home" class="text-lg nav-link active" data-section="home">Home</a>
+                <a href="#features" class="text-lg nav-link" data-section="features">Features</a>
+                <a href="#tech" class="text-lg nav-link" data-section="tech">How It Works</a>
+                <a href="#pricing" class="text-lg nav-link" data-section="pricing">Pricing</a>
+                <a href="#privacy" class="text-lg nav-link" data-section="privacy">Privacy & Security</a>
+                <a href="#" class="btn btn-primary bg-white dark-green-text hover:bg-gray-200 ml-4">Sign Up</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-6 py-8">
+
+        <section id="home" class="content-section active">
+            <div class="text-center py-16">
+                <h1 class="text-5xl md:text-6xl font-bold dark-green-text mb-6">ReceiptIQ: Know Every Line, Every Dime.</h1>
+                <p class="text-xl md:text-2xl text-gray-700 mb-10 max-w-3xl mx-auto">
+                    Scan any U.S. grocery receipt, get it auto-itemized with ≥90% accuracy, link it to your bank transactions, and export your spending. Take control of your grocery budget and unlock insights.
+                </p>
+                <div class="space-x-4">
+                    <a href="#" class="btn btn-primary text-lg">Sign Up for Free</a>
+                    <a href="#features" class="btn btn-secondary text-lg nav-link" data-section="features">Learn More</a>
+                </div>
+            </div>
+
+            <div class="my-16">
+                 <h2 class="text-3xl font-semibold text-center dark-green-text mb-12">See ReceiptIQ in Action</h2>
+                <div class="max-w-3xl mx-auto bg-gray-700 rounded-lg shadow-2xl p-2">
+                    <img src="https://placehold.co/1200x675/1A472A/F8F0E3?text=ReceiptIQ+App+Dashboard+Mockup" alt="ReceiptIQ App Mockup" class="rounded-md w-full">
+                </div>
+            </div>
+
+            <div class="py-16">
+                <h2 class="text-3xl font-semibold text-center dark-green-text mb-12">Tired of Grocery Guesswork?</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-center">
+                    <div class="card">
+                        <h3 class="text-2xl font-semibold accent-green-text mb-3">Lost Receipts?</h3>
+                        <p class="text-gray-600">Struggling to find receipts for returns, warranties, or expense reports?</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-semibold accent-green-text mb-3">Budget Blindspots?</h3>
+                        <p class="text-gray-600">Unsure where your grocery money truly goes each month?</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-2xl font-semibold accent-green-text mb-3">Optimization Overload?</h3>
+                        <p class="text-gray-600">Want to save more or eat healthier but find tracking a chore?</p>
+                    </div>
+                </div>
+                <p class="text-2xl text-center dark-green-text mt-12 font-semibold">ReceiptIQ is your intelligent solution.</p>
+            </div>
+
+            <div class="py-16 soft-ivory-bg rounded-lg">
+                <h2 class="text-3xl font-semibold text-center dark-green-text mb-12">How It Works in 3 Simple Steps</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="text-center p-6">
+                        <div class="text-5xl accent-green-text mb-4">1</div>
+                        <h3 class="text-xl font-semibold dark-green-text mb-2">Scan Receipt</h3>
+                        <p class="text-gray-700">Use your phone or upload an image. Our AI does the heavy lifting.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="text-5xl accent-green-text mb-4">2</div>
+                        <h3 class="text-xl font-semibold dark-green-text mb-2">Auto-Itemize & Categorize</h3>
+                        <p class="text-gray-700">Items are automatically extracted, categorized, and linked to bank data.</p>
+                    </div>
+                    <div class="text-center p-6">
+                        <div class="text-5xl accent-green-text mb-4">3</div>
+                        <h3 class="text-xl font-semibold dark-green-text mb-2">Track & Optimize</h3>
+                        <p class="text-gray-700">Gain insights, manage budgets, and export data effortlessly.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="py-16">
+                <h2 class="text-3xl font-semibold text-center dark-green-text mb-12">Unlock Key Benefits</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="card">
+                        <h3 class="text-xl font-semibold accent-green-text mb-2">Accurate Spending Tracker</h3>
+                        <p class="text-gray-600">Know exactly how much you spend on groceries and on what items.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold accent-green-text mb-2">Effortless Receipt Management</h3>
+                        <p class="text-gray-600">Digitally store and easily retrieve receipts for returns or warranties.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="text-xl font-semibold accent-green-text mb-2">Smart Optimization</h3>
+                        <p class="text-gray-600">Identify savings opportunities and track nutritional information without extra effort.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center py-16">
+                <h2 class="text-3xl font-semibold dark-green-text mb-6">Ready to Take Control?</h2>
+                <p class="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">Join thousands of savvy shoppers transforming their grocery habits with ReceiptIQ.</p>
+                <a href="#" class="btn btn-primary text-xl">Get Started with ReceiptIQ Today</a>
+            </div>
+        </section>
+
+        <section id="features" class="content-section">
+            <h2 class="text-4xl font-bold text-center dark-green-text mb-16">Everything You Need to Master Your Grocery Spending</h2>
+            
+            <div class="space-y-12">
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Smart Receipt Scanning & Itemization</h3>
+                    <ul class="list-disc list-inside text-gray-700 custom-list">
+                        <li>Scan any U.S. grocery receipt with your phone or upload an image.</li>
+                        <li>Automatic itemization with ≥90% accuracy using advanced on-device OCR (Tesseract.js) and AWS Textract fallback.</li>
+                        <li>Intelligent line-item parsing (name, quantity, price) using Regex and price heuristics.</li>
+                        <li>Item name disambiguation powered by cutting-edge LLMs (Gemini Vision or GPT-4o).</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Automatic Categorization & Nutrition Tracking</h3>
+                    <ul class="list-disc list-inside text-gray-700 custom-list">
+                        <li>Automatic categorization of items for easy budgeting (e.g., Produce, Dairy, Pantry).</li>
+                        <li>Nutrition tagging and calorie information for diet trackers, sourced from USDA FoodData Central API.</li>
+                        <li>Customizable categories to fit your specific tracking needs.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Seamless Bank Transaction Matching</h3>
+                    <ul class="list-disc list-inside text-gray-700 custom-list">
+                        <li>Securely link your bank accounts via Plaid (supports major US banks).</li>
+                        <li>Automatically match itemized receipts to corresponding bank transactions based on timestamp and amount.</li>
+                        <li>Review and confirm matches for complete accuracy.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Powerful Data Export & Reporting</h3>
+                    <ul class="list-disc list-inside text-gray-700 custom-list">
+                        <li>Export your spending data to CSV for use in spreadsheets or other financial software.</li>
+                        <li>Specialized CSV formats for business expenses (Pro Plan).</li>
+                        <li>Upcoming: MyFitnessPal export for seamless diet tracking (Phase III).</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Insightful Budgeting & Spending Analytics</h3>
+                    <ul class="list-disc list-inside text-gray-700 custom-list">
+                        <li>Visualize your grocery spending with an intuitive dashboard.</li>
+                        <li>Track total spend against your budget.</li>
+                        <li>Analyze spending by category with pie charts and view price trends over time.</li>
+                    </ul>
+                </div>
+                 <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Secure Receipt Storage & Retrieval</h3>
+                    <ul class="list-disc list-inside text-gray-700 custom-list">
+                        <li>Never lose a receipt again! Digitally store all your grocery receipts.</li>
+                        <li>Easily search and retrieve receipts for returns, warranties, or expense claims.</li>
+                        <li>Optional cloud archive with robust AES-256 server-side encryption (Phase III). Default: on-device processing with image purge for maximum privacy.</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Price History & Alerts (Pro Feature)</h3>
+                    <ul class="list-disc list-inside text-gray-700 custom-list">
+                        <li>Track price history for your favorite items across different stores (Phase III).</li>
+                        <li>Receive browser notifications when prices for items you frequently buy spike (Phase III).</li>
+                        <li>Make smarter purchasing decisions and save money.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-16 p-8 soft-ivory-bg rounded-lg">
+                <h3 class="text-3xl font-semibold text-center dark-green-text mb-8">Feature Roadmap: Always Improving</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <div class="p-4 border border-gray-300 rounded-md">
+                        <h4 class="font-bold accent-green-text">MVP (Live Soon!)</h4>
+                        <p class="text-sm text-gray-600">Secure Auth, Plaid Sync, Receipt-Transaction Linking, CSV Export, Freemium (20 scans/mo).</p>
+                    </div>
+                    <div class="p-4 border border-gray-300 rounded-md">
+                        <h4 class="font-bold accent-green-text">Phase III (Beta Polish)</h4>
+                        <p class="text-sm text-gray-600">Nutrition Tab, MyFitnessPal Export, Price History Graphs & Alerts, Cloud Archive, GDPR/CCPA Tools.</p>
+                    </div>
+                    <div class="p-4 border border-gray-300 rounded-md">
+                        <h4 class="font-bold accent-green-text">Phase IV (Growth)</h4>
+                        <p class="text-sm text-gray-600">Fetch/Ibotta Integration, Referral Program, iOS/Android Wrappers.</p>
+                    </div>
+                     <div class="p-4 border border-gray-300 rounded-md">
+                        <h4 class="font-bold accent-green-text">Future Innovations</h4>
+                        <p class="text-sm text-gray-600">We're constantly working on new ways to help you save time and money on groceries.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="content-section">
+            <h2 class="text-4xl font-bold text-center dark-green-text mb-16">Intelligent Technology for Seamless Grocery Management</h2>
+
+            <div class="space-y-10">
+                <div>
+                    <h3 class="text-2xl font-semibold accent-green-text mb-4">Our Step-by-Step Process:</h3>
+                    <ol class="list-decimal list-inside space-y-3 text-gray-700 pl-4">
+                        <li><strong>Upload & Pre-process:</strong> Your receipt image undergoes pre-processing (grayscale, de-skew, crop) using OpenCV.js in a browser web-worker for optimal clarity.</li>
+                        <li><strong>Accurate OCR:</strong> Tesseract.js Workers run in parallel for fast, on-device Optical Character Recognition. For challenging receipts, AWS Textract serves as a powerful fallback if confidence is below 85%.</li>
+                        <li><strong>Smart Parsing:</strong> We use a combination of Regular Expressions (Regex) and price heuristics to accurately parse line items, extracting details like item name, quantity, and price.</li>
+                        <li><strong>Item Disambiguation:</strong> Advanced LLMs (like Gemini Vision or specific OpenAI models) clarify and normalize item names, ensuring consistency.</li>
+                        <li><strong>Enrichment:</strong> Item data is enriched with categories (e.g., “Produce > Vegetables”) and nutritional information (calories, macros) by referencing taxonomies and the USDA FoodData Central API.</li>
+                        <li><strong>Bank Linking:</strong> Receipts are intelligently matched to bank transactions from your Plaid feed using a fuzzy logic approach on timestamp (±2 days) and amount (±$0.50).</li>
+                        <li><strong>Secure Storage:</strong> Processed data (JSON rows) is stored securely in our Postgres database. Original images are only stored in an S3-compatible vault if you explicitly opt-in to cloud archive.</li>
+                    </ol>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-4">Simplified System Architecture:</h3>
+                    <div class="grid md:grid-cols-2 gap-6 text-gray-700">
+                        <div>
+                            <h4 class="font-bold text-lg dark-green-text">Client-Side Power:</h4>
+                            <p>Our React-based Web Client handles uploads. A Web Worker performs on-device OCR, ensuring your data can be processed privately.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg dark-green-text">Intelligent Backend:</h4>
+                            <p>An NER (Named Entity Recognition) / LLM Categorizer API processes the extracted data. This data is then stored efficiently in a Postgres / Supabase database.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg dark-green-text">Secure Bank Sync:</h4>
+                            <p>Our Bank Match Engine securely communicates with Personal Finance APIs like Plaid to link your receipts with transactions.</p>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg dark-green-text">Flexible Data Output:</h4>
+                            <p>Access your data through CSV exports or integrate with other services via Webhooks (coming soon).</p>
+                        </div>
+                    </div>
+                     <div class="mt-6 p-4 bg-gray-100 rounded-md">
+                        <p class="text-sm text-gray-600 text-center"><strong>Diagram Placeholder:</strong> Imagine a simplified flow diagram here showing: User Upload -> Client OCR/Pre-processing -> Server API (LLM Categorizer) -> Database (Postgres) -> Bank Match Engine (Plaid) -> User Dashboard/Exports.</p>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-semibold accent-green-text mb-4">Our Tech Stack Highlights:</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4 custom-list">
+                        <li><strong>Front-end:</strong> React, Vite, Tailwind CSS, PWA features for offline scan queueing.</li>
+                        <li><strong>Back-end:</strong> Node.js (v18+) with Fastify or NestJS, deployed on Fly.io or Render for scalability and rapid rollbacks.</li>
+                        <li><strong>Database:</strong> PostgreSQL (v16) with pgvector for efficient semantic search on item names.</li>
+                        <li><strong>AI Services:</strong> Tesseract.js, AWS Textract, Gemini Vision or GPT-4o, USDA FoodData Central API.</li>
+                        <li><strong>Integrations:</strong> Plaid for secure bank connections.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="content-section">
+            <h2 class="text-4xl font-bold text-center dark-green-text mb-6">Simple, Transparent Pricing</h2>
+            <p class="text-center text-lg text-gray-700 mb-16 max-w-2xl mx-auto">Choose the plan that's right for you. Start for free, and upgrade when you need more power.</p>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="card p-8 border-2 border-gray-200 hover:border-accent-green-bg">
+                    <h3 class="text-3xl font-semibold dark-green-text mb-4">Freemium</h3>
+                    <p class="text-4xl font-bold accent-green-text mb-1">$0 <span class="text-lg font-normal text-gray-500">/ month</span></p>
+                    <p class="text-gray-600 mb-6">Perfect for getting started and occasional use.</p>
+                    <ul class="space-y-3 text-gray-700 mb-8 custom-list">
+                        <li>20 Scans per Month</li>
+                        <li>Core Receipt Scanning & Itemization</li>
+                        <li>Automatic Categorization</li>
+                        <li>Bank Transaction Linking (via Plaid)</li>
+                        <li>CSV Data Export</li>
+                        <li>Basic Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-secondary w-full text-lg">Sign Up for Free</a>
+                </div>
+
+                <div class="card p-8 border-2 border-accent-green-bg shadow-xl relative">
+                    <span class="absolute top-0 right-0 bg-accent-green-bg text-white text-xs font-semibold px-3 py-1 rounded-bl-lg">Most Popular</span>
+                    <h3 class="text-3xl font-semibold dark-green-text mb-4">Pro Plan</h3>
+                    <p class="text-4xl font-bold accent-green-text mb-1">$9.99 <span class="text-lg font-normal text-gray-500">/ month</span></p>
+                    <p class="text-gray-600 mb-6">For users who want unlimited power and advanced features.</p>
+                    <ul class="space-y-3 text-gray-700 mb-8 custom-list">
+                        <li><strong>Unlimited</strong> Scans per Month</li>
+                        <li>All Freemium Features, PLUS:</li>
+                        <li>Price History Tracking & Alerts (Coming Soon)</li>
+                        <li>Business CSV Formats</li>
+                        <li>MyFitnessPal Export (Coming Soon)</li>
+                        <li>Optional Secure Cloud Archive (Coming Soon)</li>
+                        <li>Priority Support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary w-full text-lg">Go Pro</a>
+                </div>
+            </div>
+            
+            <div class="mt-16 text-center p-8 soft-ivory-bg rounded-lg">
+                <h3 class="text-2xl font-semibold dark-green-text mb-4">Need a Custom Solution or API Access?</h3>
+                <p class="text-gray-700 mb-4">
+                    We offer B2B API access for budgeting apps and other services looking to integrate our powerful receipt parsing technology.
+                    <br>Pricing: $0.01 per parsed line item.
+                </p>
+                <a href="#" class="btn btn-secondary">Learn More About Our API</a>
+            </div>
+        </section>
+
+        <section id="privacy" class="content-section">
+            <h2 class="text-4xl font-bold text-center dark-green-text mb-16">Your Data, Your Control. Privacy First, Always.</h2>
+            
+            <div class="space-y-10">
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Our Commitment to Your Privacy</h3>
+                    <p class="text-gray-700 mb-4">We believe in privacy-first defaults and giving you full control over your information. Here's how we protect your data:</p>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4 custom-list">
+                        <li><strong>On-Device OCR Processing:</strong> Whenever possible, receipt images are processed directly on your device using WebAssembly Tesseract. This means your sensitive receipt data doesn't need to leave your computer or phone for initial processing.</li>
+                        <li><strong>Immediate Image Purge (Default):</strong> After successful JSON data extraction, the original receipt image is immediately purged from our systems by default, unless you specifically enable our "Cloud Archive" feature.</li>
+                        <li><strong>Secure Cloud Archive (Optional):</strong> If you choose to use the Cloud Archive feature (coming in Phase III), your receipt images will be stored with strong AES-256 server-side encryption in a secure S3-compatible vault. You control this setting.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Secure Data Handling & Bank Connections</h3>
+                     <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4 custom-list">
+                        <li><strong>Bank Credentials:</strong> We use Plaid for bank connections. Plaid tokenizes your bank credentials, meaning ReceiptIQ never stores or even sees your raw login information.</li>
+                        <li><strong>Data Minimization:</strong> We only collect and store the data necessary to provide our services.</li>
+                        <li><strong>Data Export & Erasure:</strong> You have the right to export your data and request erasure in line with GDPR & CCPA regulations. Tools for this will be available in Phase III.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3 class="text-2xl font-semibold accent-green-text mb-3">Robust Security Measures</h3>
+                    <ul class="list-disc list-inside space-y-2 text-gray-700 pl-4 custom-list">
+                        <li><strong>SOC-2 Pathway:</strong> We are committed to security best practices and are on a pathway towards SOC-2 compliance, including comprehensive logging (OpenTelemetry → Loki/Grafana) and quarterly vulnerability scans.</li>
+                        <li><strong>COPPA Compliance:</strong> We do not knowingly collect data from children under 13. Sign-up includes DOB gating to prevent underage registration.</li>
+                        <li><strong>PII Protection:</strong> We plan to implement auto-redaction of sensitive PII like loyalty barcodes if you opt out of cloud storage.</li>
+                        <li><strong>Regular Audits:</strong> We will conduct regular security audits and penetration testing (e.g., via Bugcrowd VTDP pre-launch) to identify and address potential vulnerabilities.</li>
+                    </ul>
+                </div>
+                
+                <div class="mt-10 p-6 soft-ivory-bg rounded-lg text-center">
+                    <p class="text-gray-700">We are dedicated to maintaining your trust. For more details, please review our full <a href="#" class="accent-green-text underline">Privacy Policy</a> and <a href="#" class="accent-green-text underline">Terms of Service</a> (links are placeholders).</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="dark-green-bg soft-ivory-text py-12 mt-16">
+        <div class="container mx-auto px-6 text-center">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h5 class="text-xl font-bold mb-3">ReceiptIQ</h5>
+                    <p class="text-sm">Know every line, every dime.</p>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-3">Quick Links</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#features" class="hover:underline nav-link" data-section="features">Features</a></li>
+                        <li><a href="#pricing" class="hover:underline nav-link" data-section="pricing">Pricing</a></li>
+                        <li><a href="#" class="hover:underline">Sign Up</a></li>
+                        <li><a href="#" class="hover:underline">API Documentation (Placeholder)</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h5 class="text-lg font-semibold mb-3">Legal & Support</h5>
+                    <ul class="space-y-2 text-sm">
+                        <li><a href="#privacy" class="hover:underline nav-link" data-section="privacy">Privacy Policy (Highlights)</a></li>
+                        <li><a href="#" class="hover:underline">Terms of Service (Placeholder)</a></li>
+                        <li><a href="#" class="hover:underline">Contact Us (Placeholder)</a></li>
+                        <li><a href="#" class="hover:underline">FAQ (Placeholder)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8">
+                <p class="text-sm">&copy; <span id="currentYear"></span> ReceiptIQ. All rights reserved. Crafted with care.</p>
+                <p class="text-xs mt-2">This is a promotional website concept based on provided specifications.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript for navigation and dynamic content display
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const contentSections = document.querySelectorAll('.content-section');
+            const headerNavLinks = document.querySelectorAll('header nav a.nav-link');
+
+            function setActiveSection(sectionId) {
+                contentSections.forEach(section => {
+                    if (section.id === sectionId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+
+                // Update active state for header navigation links
+                headerNavLinks.forEach(link => {
+                    if (link.getAttribute('data-section') === sectionId) {
+                        link.classList.add('active');
+                         link.classList.add('text-emerald-400'); // More vibrant active color
+                    } else {
+                        link.classList.remove('active');
+                        link.classList.remove('text-emerald-400');
+                    }
+                });
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Scroll to top on section change
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const sectionId = this.getAttribute('data-section');
+                    if (sectionId) {
+                        setActiveSection(sectionId);
+                        // Update URL hash without jumping (for bookmarkability, optional)
+                        // history.pushState(null, null, `#${sectionId}`);
+                    } else if (this.getAttribute('href') === '#') { // For Sign Up / generic links
+                        console.log('Non-section link clicked:', this.textContent);
+                        // Potentially open a modal or navigate to a different page if this were a real multi-page app
+                    }
+                });
+            });
+
+            // Activate initial section (home)
+            // Or check URL hash for deep linking, e.g. if (window.location.hash) setActiveSection(window.location.hash.substring(1));
+            setActiveSection('home'); 
+
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+        });
+    </script>
+
+</body>
+</html>
